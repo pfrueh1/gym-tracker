@@ -1,12 +1,16 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-
+app.use(cors({
+  origin: '*'
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
