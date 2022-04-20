@@ -8,6 +8,14 @@ const liftController = {
                 console.log(err);
                 res.status(400).json(err)
             })
+    },
+    createLift({body}, res) {
+        Lift.create(body)
+        .then(dbLiftData => res.json(dbLiftData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err)
+        })
     }
 }
 

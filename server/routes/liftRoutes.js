@@ -9,6 +9,7 @@ const {
 router
     .route('/')
     .get(getAllLifts)
+    .post(createLift)
     
 
     module.exports = router;
