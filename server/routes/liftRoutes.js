@@ -3,7 +3,8 @@ const router = require('express').Router();
 
 const {
     getAllLifts,
-    createLift
+    createLift,
+    updateLift
 } = require('../controllers/lift-controller')
 
 router
@@ -11,5 +12,9 @@ router
     .get(getAllLifts)
     .post(createLift)
     
+
+router
+    .route('/:id')
+    .put(updateLift)
 
     module.exports = router;
