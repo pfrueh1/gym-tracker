@@ -8,13 +8,13 @@ const {
 } = require('../controllers/lift-controller')
 
 router
-    .route('/')
+    .route('/lifts')
     .get(getAllLifts)
     .post(createLift)
     
 
 router
-    .route('/:id')
+    .route('/lifts/:id')
     .put(updateLift)
 
     module.exports = router;

@@ -5,7 +5,7 @@ import Lifts from '../components/Lifts'
 const Home = () => {
   return (
     <div className="container">
-      {/* <AddLiftForm/> */}
+      <AddLiftForm/>
       <Lifts/>
     </div>
   );

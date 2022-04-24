@@ -8,14 +8,14 @@ const Lifts = () => {
 
   const fetchlifts = async () => {
     const response = await fetch(
-      "http://localhost:3001/"
+      "http://localhost:3001/lifts"
     );
       const data = await response.json()
       setLifts(data)
   }
   useEffect(() => {
     fetchlifts();
-  });
+  }, []);
     // console.log('loading', loading)
     // console.log("liftsData1", data)
     // setTimeout(() => (console.log("liftsData2", data, loading)), 5000)
