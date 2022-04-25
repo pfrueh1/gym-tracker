@@ -6,6 +6,10 @@ const LiftCard = ({lift}) => {
 
   const submitUpdate = () => {
     setEditorOpen(false)
+    const date = new Date()
+    const month = date.getMonth().toString()
+   const day = date.getDate().toString()
+   const year = date.getFullYear().toString()
     console.log("i was called")
     if (!newLiftWeight) { alert('name and weight required!'); return;}
     fetch(`http://localhost:3001/lifts/${lift._id}`, {
@@ -14,7 +18,9 @@ const LiftCard = ({lift}) => {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({weight: parseInt(newLiftWeight)})
+        body: JSON.stringify({weight: parseInt(newLiftWeight), dateUpdated:`${month}/${day}/${year}`
+          // `${}/${}/${}`
+        })
       })
         .then(response => response.json())
         .then(postResponse => {
