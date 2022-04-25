@@ -24,7 +24,7 @@ const liftController = {
                 res.status(404).json({message: 'No lift found with this ID'});
                 return;
             }
-            res.json(dbPizzaData)
+            res.json(dbLiftData)
         })
         .catch(err => res.status(400).json(err))
     }

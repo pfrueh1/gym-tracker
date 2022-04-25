@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const LiftCard = ({lift}) => {
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [newLiftWeight, setNewLiftWeight] = useState('');
+
+  const submitUpdate = () => {
+    setEditorOpen(false)
+    console.log("i was called")
+    if (!newLiftWeight) { alert('name and weight required!'); return;}
+    fetch(`http://localhost:3001/lifts/${lift._id}`, {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({weight: parseInt(newLiftWeight)})
+      })
+        .then(response => response.json())
+        .then(postResponse => {
+          alert('New PR recorded!');
+          console.log(postResponse);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+}
 
     return (
         <div className="flex-row">
@@ -9,6 +33,13 @@ const LiftCard = ({lift}) => {
             <div>{lift.weight}</div>
             <div>{lift.dateUpdated}</div>
           </div>
+          {editorOpen ? (
+                      <form>
+                      <h3>Congratulations! What is your new PR?</h3>
+                      <input id="newLiftWeight" placeholder='weight' onBlur={(e) => setNewLiftWeight(e.target.value)}></input>
+                      <button id='submitUpdate' onClick={submitUpdate}>Submit</button>
+                    </form>
+          ):(<button onClick={setEditorOpen(true)}>Update PR!</button>)}
         </div>
       );
 }
