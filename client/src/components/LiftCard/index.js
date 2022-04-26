@@ -7,11 +7,11 @@ const LiftCard = ({lift}) => {
   const submitUpdate = () => {
     setEditorOpen(false)
     const date = new Date()
-    const month = date.getMonth().toString()
-   const day = date.getDate().toString()
-   const year = date.getFullYear().toString()
+    const month = date.getMonth() + 1
+   const day = date.getDate()
+   const year = date.getFullYear()
     console.log("i was called")
-    if (!newLiftWeight) { alert('name and weight required!'); return;}
+    if (!newLiftWeight) { alert('weight required!'); return;}
     fetch(`http://localhost:3001/lifts/${lift._id}`, {
         method: 'PUT',
         headers: {
@@ -19,7 +19,6 @@ const LiftCard = ({lift}) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({weight: parseInt(newLiftWeight), dateUpdated:`${month}/${day}/${year}`
-          // `${}/${}/${}`
         })
       })
         .then(response => response.json())
@@ -30,8 +29,11 @@ const LiftCard = ({lift}) => {
         .catch(err => {
           console.log(err);
         });
+        window.location.reload()
 }
-
+  const openUpdateForm = () => {
+    setEditorOpen(true)
+  }
     return (
         <div className="flex-row">
           <div>
@@ -39,13 +41,14 @@ const LiftCard = ({lift}) => {
             <div>{lift.weight}</div>
             <div>{lift.dateUpdated}</div>
           </div>
-          {editorOpen ? (
+          <button onClick={openUpdateForm}>Update PR!</button>
+          {editorOpen && (
                       <form>
                       <h3>Congratulations! What is your new PR?</h3>
                       <input id="newLiftWeight" placeholder='weight' onBlur={(e) => setNewLiftWeight(e.target.value)}></input>
                       <button id='submitUpdate' onClick={submitUpdate}>Submit</button>
                     </form>
-          ):(<button onClick={setEditorOpen(true)}>Update PR!</button>)}
+          )}
         </div>
       );
 }
