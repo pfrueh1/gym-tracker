@@ -18,12 +18,13 @@ const Lifts = () => {
   }, []);
   
     return (
-      <div className="container">
+      <div className="container1">
           <h2>Current Bests</h2>
-          {lifts.map((lift) => (
-              <LiftCard key={lift._id} lift={lift}/>
-          ))}
-
+          <div className="lift-card-container">
+            {lifts.map((lift) => (
+                <LiftCard key={lift._id} lift={lift}/>
+            ))}
+          </div>
       </div>
     );
   };

@@ -35,11 +35,11 @@ const LiftCard = ({lift}) => {
     setEditorOpen(true)
   }
     return (
-        <div className="flex-row">
-          <div>
-            <div>{lift.name}</div>
-            <div>{lift.weight}</div>
-            <div>{lift.dateUpdated}</div>
+        <div className="lift-card">
+          <div className='lift-details'>
+            <div className="lift-name">{lift.name}</div>
+            <div className="lift-weight">{lift.weight}</div>
+            <div className="lift-date">{lift.dateUpdated}</div>
           </div>
           <button onClick={openUpdateForm}>Update PR!</button>
           {editorOpen && (
