@@ -41,12 +41,12 @@ const LiftCard = ({lift}) => {
             <div className="lift-weight">{lift.weight}</div>
             <div className="lift-date">{lift.dateUpdated}</div>
           </div>
-          <button onClick={openUpdateForm}>Update PR!</button>
+          <button className='lift-btn' onClick={openUpdateForm}>Update PR!</button>
           {editorOpen && (
                       <form>
                       <h3>Congratulations! What is your new PR?</h3>
                       <input id="newLiftWeight" placeholder='weight' onBlur={(e) => setNewLiftWeight(e.target.value)}></input>
-                      <button id='submitUpdate' onClick={submitUpdate}>Submit</button>
+                      <button className='lift-btn' id='submitUpdate' onClick={submitUpdate}>Submit</button>
                     </form>
           )}
         </div>

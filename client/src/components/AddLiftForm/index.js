@@ -25,15 +25,15 @@ const AddLiftForm = () => {
     }
 
     return (
-        <div className="flex-row">
-          <form>
+        
+          <form className='lift-form'>
             <h3>Add a new PR!</h3>
-            <input id="newLiftName" placeholder='Lift and reps' onBlur={(e) => setNewLiftName(e.target.value)}></input>
-            <input id="newLiftWeight" placeholder='weight' onBlur={(e) => setNewLiftWeight(e.target.value)}></input>
-            <button id='submitNewLift' onClick={submitNewLift}>Submit</button>
+            <input className='new-lift-name' id="newLiftName" placeholder='Lift and reps' onBlur={(e) => setNewLiftName(e.target.value)}></input>
+            <input className='new-lift-weight' id="newLiftWeight" placeholder='weight' onBlur={(e) => setNewLiftWeight(e.target.value)}></input>
+            <button className='new-lift-btn' id='submitNewLift' onClick={submitNewLift}>Submit</button>
           </form>
           
-        </div>
+        
       );
 }
 

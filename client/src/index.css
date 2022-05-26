@@ -1,3 +1,8 @@
+:root {
+  --primary: red;
+  --secondary: white;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,7 +19,10 @@ code {
 
 body {
   color: red;
+  
 }
+
+
 .container {
   display: flex;
   flex: row;
@@ -28,22 +36,27 @@ body {
   width: 25%;
   max-width: 200px;
   height: 60%;
-  margin-bottom: 1%;
+  margin: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius:5px;
+  color: black;
 }
 
 .container1 {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .lift-card-container {
-  width: 100%;
+  width: 60%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -55,9 +68,56 @@ body {
   align-items: center;
 }
 
-.lift-name,
 .lift-weight,
 .lift-date {
   border: black solid 1px;
+  width: 95%;
+  margin-bottom: 1%;
+  border-radius:5px;
+  text-align: center;
+}
+
+.lift-form {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  border: black solid 1px;
+  width: 20%;
+  overflow: hidden;
+  margin-top: 1%;
+  border-radius:5px;
+}
+
+.lift-form h3, .lift-name {
   width: 100%;
+  background-color: var(--primary);
+  color: var(--secondary);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1%;
+}
+
+.new-lift-name,
+.new-lift-weight {
+  width: 80%;
+  margin-bottom: 1%;
+  border-radius:5px;
+}
+
+.new-lift-btn, .lift-btn {
+  margin-bottom: 1%;
+  border-radius:5px;
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 2vw;
+  }
+
+  .new-lift-btn, .lift-btn {
+    font-size: 2vw;
+    max-height: 15%;
+  }
 }
